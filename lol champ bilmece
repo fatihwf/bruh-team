@@ -1,13 +1,39 @@
+# editörle açın la gözleriniz bozulur böyle
 champ_list={}
-champ_list["diana"] = {"tür":"dövüşçü"}
+
+import random
+champ_list[1] = {"name":"diana","tür":"dövüşçü","lane":"mid"}
+champ_list[2] = {"name":"aatrox","tür":"dövüşçü","lane":"top"}
 dec =''
 
 
 print("lol champ bilmece gaming")
 while dec != 'e':
     dec = input("baslamak icin 'a' , cıkıs icin 'e' basınız. -->   ")
-    if dec == 'a': # oyun basliyor
+    
+    
+    if dec == 'a': # oyun burda basliyor
+        num = random.randint(1,3)
+        print("oyun basliyor! ilk tahminleri yapınız")
+
+        tür = input("tür (adc,sup,tank,dövüşçü,assasin,mage): ")
+        lane = input("lane (top,jungle,mid,bot,sup): ")
+        if tür == champ_list[num]["tür"] : 
+            print(f"tür doğru! {champ_list[num]['tür']}")
+        else:
+            print("tür yanlış!")
         
+        if lane == champ_list[num]["lane"] :
+            print(f"lane doğru!  {champ_list[num]['lane']}")
+        else: 
+            print("lane yanlış! ")
+        
+        tahmin = input("şampiyon tahmin ediniz: ")
+        if tahmin == champ_list[num]['name'] :
+            print("oha helal doğru")
+        else: 
+            print("yanlıs tahmin ez")
+
     
     
     elif dec == 'e': # cıkıs
