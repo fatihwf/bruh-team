@@ -1,46 +1,46 @@
 # editörle açın la gözleriniz bozulur böyle
-champ_list={}
+champ_list = {}
 
 import random
-champ_list[1] = {"name":"diana","tür":"dövüşçü","lane":"mid"}
-champ_list[2] = {"name":"aatrox","tür":"dövüşçü","lane":"top"}
-champ_list[3] = {"name":"ahri", "tür":"mage","lane":"mid"}            #olm kod çok iyi        # büyücü yapma mage yap
-champ_list[4] = {"name":"akali", "tür":"mage","lane":"mid"}
-champ_list[5] = {"name":"akshan", "tür":"adc","lane":"mid"}             #şimdi akshan hem mid hem top mesela nasıl yapabiliriz onu   eve gidince bi ayar cekim 
-dec =''
 
+champ_list[1] = {"name": "diana", "tür": "dövüşçü", "lane": "mid"}
+champ_list[2] = {"name": "aatrox", "tür": "dövüşçü", "lane": "top"}
+champ_list[3] = {"name": "ahri", "tür": "mage", "lane": "mid"}  # olm kod çok iyi        # büyücü yapma mage yap
+champ_list[4] = {"name": "akali", "tür": "mage", "lane": "mid"}
+champ_list[5] = {"name": "akshan", "tür": "adc","lane": "mid"}  # şimdi akshan hem mid hem top mesela nasıl yapabiliriz onu   eve gidince bi ayar cekim
+dec = ''
 
 print("lol champ bilmece gaming")
 while dec != 'e':
     dec = input("baslamak icin 'a' , cıkıs icin 'e' basınız. -->   ")
-    
-    
-    if dec == 'a': # oyun burda basliyor
-        num = random.randint(1,3)
+    num = random.randint(1,5)
+
+    if dec == 'a':  # oyun burda basliyor
+
         print("oyun basliyor! ilk tahminleri yapınız")
 
         tür = input("tür (adc,sup,tank,dövüşçü,assasin,mage): ")
         lane = input("lane (top,jungle,mid,bot,sup): ")
-        if tür == champ_list[num]["tür"] : 
+        if tür == champ_list[num]["tür"]:
             print(f"tür doğru! {champ_list[num]['tür']}")
         else:
             print("tür yanlış!")
-        
-        if lane == champ_list[num]["lane"] :
-            print(f"lane doğru!  {champ_list[num]['lane']}")
-        else: 
-            print("lane yanlış! ")
-        
-        tahmin = input("şampiyon tahmin ediniz: ")
-        if tahmin == champ_list[num]['name'] :
-            print("oha helal doğru")
-        else: 
-            print("yanlıs tahmin ez")
 
-    
-    
-    elif dec == 'e': # cıkıs
+        if lane == champ_list[num]["lane"]:
+            print(f"lane doğru!  {champ_list[num]['lane']}")
+        else:
+            print("lane yanlış! ")
+
+        tahmin = input("şampiyon tahmin ediniz: ")
+        if tahmin == champ_list[num]['name']:
+            print(f"oha helal doğru. şampiyon {champ_list[num]['name']}")
+        else:
+            print(f"yanlıs tahmin ez. şampiyon {champ_list[num]['name']}")
+
+
+
+    elif dec == 'e':  # cıkıs
         break
-    
+
     else:
         print("yanlış tuşa bastınız!!!!")
