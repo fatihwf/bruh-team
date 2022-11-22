@@ -3,16 +3,16 @@ champ_list = {}
 
 import random
 
-champ_list[1] = {"name": "diana", "tür": "dövüşçü", "lane": "mid"}
-champ_list[2] = {"name": "aatrox", "tür": "dövüşçü", "lane": "top"}
-champ_list[3] = {"name": "ahri", "tür": "mage", "lane": "mid"}  # olm kod çok iyi        # büyücü yapma mage yap
-champ_list[4] = {"name": "akali", "tür": "mage", "lane": "mid"}
-champ_list[5] = {"name": "akshan", "tür": "adc","lane": "mid"}  # şimdi akshan hem mid hem top mesela nasıl yapabiliriz onu   eve gidince bi ayar cekim
+champ_list[1] = {"name": "diana", "tür": "dövüşçü", "lane": "jungle-mid", "cinsiyet":"kadın", "menzil":"yakıncı", "ülke":"targon"}
+champ_list[2] = {"name": "aatrox", "tür": "dövüşçü", "lane": "top", "cinsiyet":"erkek", "menzil":"yakıncı", "ülke":"runettera-shurima"}
+champ_list[3] = {"name": "ahri", "tür": "mage", "lane": "mid", "cinsiyet":"kadın", "menzil":"uzakçı", "ülke":"ionia"}                      # olm kod çok iyi
+champ_list[4] = {"name": "akali", "tür": "assasin", "lane": "mid-top", "cinsiyet":"kadın", "menzil":"yakıncı", "ülke":"ionia"}
+champ_list[5] = {"name": "akshan", "tür": "adc","lane": "mid-top", "cinsiyet":"erkek", "menzil":"uzakçı", "ülke":"shurima"}
 dec = ''
 
 print("lol champ bilmece gaming")
 while dec != 'e':
-    dec = input("baslamak icin 'a' , cıkıs icin 'e' basınız. -->   ")
+    dec = input("baslamak icin 'a' , oyun hakkında info icin 'b' , cıkıs icin 'e' basınız. -->   ")
     num = random.randint(1,5)
 
     if dec == 'a':  # oyun burda basliyor
@@ -21,15 +21,37 @@ while dec != 'e':
 
         tür = input("tür (adc,sup,tank,dövüşçü,assasin,mage): ")
         lane = input("lane (top,jungle,mid,bot,sup): ")
-        if tür == champ_list[num]["tür"]:
+        cinsiyet = input("cinsiyet: ")
+        menzil = input("menzil: ")
+        ülke = input("ülke: ")
+
+
+        if tür == champ_list[num]["tür"]:                                  #tür
             print(f"tür doğru! {champ_list[num]['tür']}")
         else:
             print("tür yanlış!")
 
-        if lane == champ_list[num]["lane"]:
+        if lane in champ_list[num]["lane"]:                               #lane
             print(f"lane doğru!  {champ_list[num]['lane']}")
         else:
             print("lane yanlış! ")
+
+        if cinsiyet == champ_list[num]['cinsiyet']:                         #cinsiyet
+            print(f"cinsiyet doğru! {champ_list[num]['cinsiyet']}")
+        else:
+            print("cinsiyet yanlış! ")
+
+        if menzil == champ_list[num]['menzil']:
+            print(f"menzil doğru! {champ_list[num]['menzil']}")             #menzil
+        else:
+            print("menzil yanlış! ")
+
+        if ülke in champ_list[num]['ülke']:
+            print(f"ülke doğru! {champ_list[num]['ülke']}")                 #ülke
+        else:
+            print("ülke yanlış! ")
+
+
 
         tahmin = input("şampiyon tahmin ediniz: ")
         if tahmin == champ_list[num]['name']:
@@ -41,6 +63,8 @@ while dec != 'e':
 
     elif dec == 'e':  # cıkıs
         break
-
+    elif dec == 'b':
+        print("Oyunun Kuralları: ")
+        print("")
     else:
         print("yanlış tuşa bastınız!!!!")
