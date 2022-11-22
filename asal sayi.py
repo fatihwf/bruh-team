@@ -1,17 +1,43 @@
-bas = int (input("baslangıc degeri: "))
-son = int (input("son deger: "))
+#include <stdio.h>
 
-kactaneasal = 0
-for sayi in range (bas+1 , son) :
-    if sayi < 2:
-        continue
-    bölen = 2
-    while bölen < (sayi):
-        if sayi % bölen ==0:
-            break
-        bölen += 1
-    else:
-        kactaneasal += 1
-        print(sayi)
+int main() {
 
-print(f"{kactaneasal} tane asal sayı")
+	int bolen,sayi,bas,son,kactaneasal;
+	
+	
+	printf("baslangic degerini giriniz: ");
+	scanf(" %d",&bas);
+	
+	printf("son degeri giriniz: ");
+	scanf(" %d",&son);
+	
+	
+	
+	
+
+
+	for (sayi = bas; sayi < son ; sayi++) {
+
+		if (sayi < 2) {
+			continue;
+		}
+		bolen = 2;
+		while (bolen < sayi){
+		
+        	if (sayi % bolen ==0){
+		
+            	break; }
+        	bolen += 1;   }
+    	if (bolen == sayi) {
+		
+       	 	kactaneasal += 1;
+        	printf("\n%d",sayi); } }
+
+
+	
+	printf("\n%d tane asal sayi",kactaneasal);
+	
+	
+	
+
+	})
