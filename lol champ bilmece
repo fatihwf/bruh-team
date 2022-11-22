@@ -1,0 +1,17 @@
+champ_list={}
+champ_list["diana"] = {"tür":"dövüşçü"}
+dec =''
+
+
+print("lol champ bilmece gaming")
+while dec != 'e':
+    dec = input("baslamak icin 'a' , cıkıs icin 'e' basınız. -->   ")
+    if dec == 'a': # oyun basliyor
+        
+    
+    
+    elif dec == 'e': # cıkıs
+        break
+    
+    else:
+        print("yanlış tuşa bastınız!!!!")
