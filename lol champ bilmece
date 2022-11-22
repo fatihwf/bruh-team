@@ -4,9 +4,9 @@ champ_list={}
 import random
 champ_list[1] = {"name":"diana","tür":"dövüşçü","lane":"mid"}
 champ_list[2] = {"name":"aatrox","tür":"dövüşçü","lane":"top"}
-champ_list[3] = {"name":"ahri", "tür":"büyücü","lane":"mid"} #olm kod çok iyi
-champ_list[4] = {"name":"akali", "tür":"büyücü","lane":"mid"}
-champ_list[5] = {"name":"akshan", "tür":"adc","lane":"mid"} #şimdi akshan hem mid hem top mesela nasıl yapabiliriz onu
+champ_list[3] = {"name":"ahri", "tür":"mage","lane":"mid"}            #olm kod çok iyi        # büyücü yapma mage yap
+champ_list[4] = {"name":"akali", "tür":"mage","lane":"mid"}
+champ_list[5] = {"name":"akshan", "tür":"adc","lane":"mid"}             #şimdi akshan hem mid hem top mesela nasıl yapabiliriz onu   eve gidince bi ayar cekim 
 dec =''
 
 
