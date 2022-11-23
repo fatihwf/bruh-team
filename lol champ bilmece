@@ -29,27 +29,27 @@ while dec != 'e':
         if tür == champ_list[num]["tür"]:                                  #tür
             print(f"tür doğru! {champ_list[num]['tür']}")
         else:
-            print("tür yanlış!")
+            print(f"türe {tür} dediniz. yanlış!")
 
         if lane in champ_list[num]["lane"]:                               #lane
             print(f"lane doğru!  {champ_list[num]['lane']}")
         else:
-            print("lane yanlış! ")
+            print(f"laneye {lane} dediniz. yanlış! ")
 
         if cinsiyet == champ_list[num]['cinsiyet']:                         #cinsiyet
             print(f"cinsiyet doğru! {champ_list[num]['cinsiyet']}")
         else:
-            print("cinsiyet yanlış! ")
+            print(f"cinsiyete {cinsiyet} dediniz. yanlış! ")
 
         if menzil == champ_list[num]['menzil']:
             print(f"menzil doğru! {champ_list[num]['menzil']}")             #menzil
         else:
-            print("menzil yanlış! ")
+            print(f"menzile {menzil} dediniz. yanlış! ")
 
         if ülke in champ_list[num]['ülke']:
             print(f"ülke doğru! {champ_list[num]['ülke']}")                 #ülke
         else:
-            print("ülke yanlış! ")
+            print(f"ülkeye {ülke} dediniz. yanlış! ")
 
 
 
