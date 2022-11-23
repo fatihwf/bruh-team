@@ -62,6 +62,7 @@ while dec != 'e':
 
 
     elif dec == 'e':  # cıkıs
+        print("byebye")
         break
     elif dec == 'b':
         print("Oyunun Kuralları: ")
