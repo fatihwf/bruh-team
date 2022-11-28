@@ -2,7 +2,8 @@
 
 int main() {
 
-	int bolen,sayi,bas,son,kactaneasal;
+	int bolen,sayi,bas,son;
+	int kactaneasal = 0;
 	
 	
 	printf("baslangic degerini giriniz: ");
