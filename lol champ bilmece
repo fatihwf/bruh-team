@@ -1,71 +1,106 @@
-# editörle açın la gözleriniz bozulur böyle
-champ_list = {}
-
-import random
-
-champ_list[1] = {"name": "diana", "tür": "dövüşçü", "lane": "jungle-mid", "cinsiyet":"kadın", "menzil":"yakıncı", "ülke":"targon"}
-champ_list[2] = {"name": "aatrox", "tür": "dövüşçü", "lane": "top", "cinsiyet":"erkek", "menzil":"yakıncı", "ülke":"runettera-shurima"}
-champ_list[3] = {"name": "ahri", "tür": "mage", "lane": "mid", "cinsiyet":"kadın", "menzil":"uzakçı", "ülke":"ionia"}                      # olm kod çok iyi
-champ_list[4] = {"name": "akali", "tür": "assasin", "lane": "mid-top", "cinsiyet":"kadın", "menzil":"yakıncı", "ülke":"ionia"}
-champ_list[5] = {"name": "akshan", "tür": "adc","lane": "mid-top", "cinsiyet":"erkek", "menzil":"uzakçı", "ülke":"shurima"}
-dec = ''
-
-print("lol champ bilmece gaming")
-while dec != 'e':
-    dec = input("baslamak icin 'a' , oyun hakkında info icin 'b' , cıkıs icin 'e' basınız. -->   ")
-    num = random.randint(1,5)
-
-    if dec == 'a':  # oyun burda basliyor
-
-        print("oyun basliyor! ilk tahminleri yapınız")
-
-        tür = input("tür (adc,sup,tank,dövüşçü,assasin,mage): ")
-        lane = input("lane (top,jungle,mid,bot,sup): ")
-        cinsiyet = input("cinsiyet: ")
-        menzil = input("menzil: ")
-        ülke = input("ülke: ")
+#include<stdio.h>
+#include<stdlib.h>  
+#include<time.h>
+#include<string.h>
 
 
-        if tür == champ_list[num]["tür"]:                                  #tür
-            print(f"tür doğru! {champ_list[num]['tür']}")
-        else:
-            print(f"türe {tür} dediniz. yanlış!")
+int main(void) {
+    
+    srand(time(0)) ;
+    int num ;
+    char *champ_list [10][6] = {} ;
 
-        if lane in champ_list[num]["lane"]:                               #lane
-            print(f"lane doğru!  {champ_list[num]['lane']}")
-        else:
-            print(f"laneye {lane} dediniz. yanlış! ")
-
-        if cinsiyet == champ_list[num]['cinsiyet']:                         #cinsiyet
-            print(f"cinsiyet doğru! {champ_list[num]['cinsiyet']}")
-        else:
-            print(f"cinsiyete {cinsiyet} dediniz. yanlış! ")
-
-        if menzil == champ_list[num]['menzil']:
-            print(f"menzil doğru! {champ_list[num]['menzil']}")             #menzil
-        else:
-            print(f"menzile {menzil} dediniz. yanlış! ")
-
-        if ülke in champ_list[num]['ülke']:
-            print(f"ülke doğru! {champ_list[num]['ülke']}")                 #ülke
-        else:
-            print(f"ülkeye {ülke} dediniz. yanlış! ")
+champ_list[0][0] = "diana" ;
+champ_list[0][1] = "fighter" ;
+champ_list[0][2] = "jungle-mid" ;
+champ_list[0][3] = "woman" ;
+champ_list[0][4] = "melee" ;
+champ_list[0][5] = "targon" ;
 
 
 
-        tahmin = input("şampiyon tahmin ediniz: ")
-        if tahmin == champ_list[num]['name']:
-            print(f"oha helal doğru. şampiyon {champ_list[num]['name']}")
-        else:
-            print(f"yanlıs tahmin ez. şampiyon {champ_list[num]['name']}")
-
-
-
-    elif dec == 'e':  # cıkıs
-        print("byebye")
-        break
-    elif dec == 'b':
-        print("Oyunun Kuralları: ")
-        print("")
-    else:
-        print("yanlış tuşa bastınız!!!!")
+    char dec  ;
+    
+    
+    
+    printf("\n\nlol champ bilmece gaming") ;
+    
+while(dec != 'e') {
+    
+    num = rand() % 1 ;
+            
+    printf("\n\noyuna baslamak icin 'a', cikis icin 'e' basiniz: ") ;
+      scanf(" %c",&dec) ;
+    
+        if (dec == 'a') {       // oyun burda basliyor
+            
+            printf("\n\noyun basliyor! ilk tahminleri yapiniz") ;
+            
+            char tur[100] ; 
+            printf("\n\ntur (adc,sup,tank,fighter,assasin,mage): ") ;
+            scanf("%s",tur);
+            printf("%s",tur) ;
+            
+            char lane[100] ;
+            printf("\n\nlane (top,jungle,mid,bot,sup): ") ;
+            scanf("%s",lane) ;
+            
+            char cinsiyet[100] ;
+            printf("\n\ncinsiyet: ") ;
+            gets(cinsiyet) ;
+            
+            char menzil[100] ;
+            printf("\n\nmenzil (melee,ranged): ") ;
+            scanf("%s",menzil) ;
+            
+            char ulke[100] ;
+            printf("\n\nulke: ") ;
+            scanf("%s",ulke) ;
+            
+            
+            if (strcmp(tur, champ_list[num][1]) == 0)                        
+                printf("\n\ntur dogru! %s",champ_list[num][1]) ;
+            else
+                printf("\n\nture %s dediniz. yanlis!",tur) ;
+                
+                    
+            if (strcmp(lane, champ_list[num][2]) == 0)                     
+                printf("\n\nlane dogru! %s",champ_list[num][2]) ;
+            else
+                printf("\n\nlaneye %s dediniz. yanlis!",lane) ;
+              
+                
+            if (strcmp(cinsiyet, champ_list[num][3]) == 0)                       
+                printf("\n\ncinsiyet dogru! %s",champ_list[num][3]) ;
+            else
+                printf("\n\ncinsiyete %s dediniz. yanlis!",cinsiyet) ;
+                
+            
+            if (strcmp(menzil, champ_list[num][4]) == 0)                       
+                printf("\n\nmenzil dogru! %s",champ_list[num][4]) ;
+            else
+                printf("\n\nmenzile %s dediniz. yanlis!",menzil) ;
+                
+                
+            if (strcmp(ulke, champ_list[num][5]) == 0)                       
+                printf("\n\nulke dogru! %s",champ_list[num][5]) ;
+            else
+                printf("\n\nulkeye %s dediniz. yanlis!",ulke) ;
+                
+                char tahmin[100] ;
+                printf("\n\ntahmin yapiniz: ");
+                scanf("%s",tahmin) ;
+                
+                if (strcmp(tahmin,champ_list[num][0]) == 0) 
+                    printf("\n\noha helal dogru. champ: %s",champ_list[num][0]) ;
+                else
+                    printf("\n\nyanlis yaptin! champ: %s",champ_list[num][0]) ;
+                
+                
+                
+                
+            
+        }          
+        
+        }
+}
