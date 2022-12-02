@@ -2,7 +2,11 @@
 #include<stdlib.h>  
 #include<time.h>
 #include<string.h>
-
+#ifdef _WIN32
+#include <Windows.h>
+#else
+#include <unistd.h>
+#endif
 
 int main(void) {
     
@@ -20,6 +24,7 @@ champ_list[0][5] = "targon" ;
 
 
     char dec  ;
+    char enter ;
     
     
     
@@ -38,12 +43,13 @@ while(dec != 'e') {
             
             char tur[100] ; 
             printf("\n\ntur (adc,sup,tank,fighter,assasin,mage): ") ;
-            scanf("%s",tur);
-            printf("%s",tur) ;
+            scanf("%c",&enter);
+            gets(tur);
+             
             
             char lane[100] ;
             printf("\n\nlane (top,jungle,mid,bot,sup): ") ;
-            scanf("%s",lane) ;
+            gets(lane) ;
             
             char cinsiyet[100] ;
             printf("\n\ncinsiyet: ") ;
@@ -51,11 +57,11 @@ while(dec != 'e') {
             
             char menzil[100] ;
             printf("\n\nmenzil (melee,ranged): ") ;
-            scanf("%s",menzil) ;
+            gets(menzil) ;
             
             char ulke[100] ;
             printf("\n\nulke: ") ;
-            scanf("%s",ulke) ;
+            gets(ulke) ;
             
             
             if (strcmp(tur, champ_list[num][1]) == 0)                        
@@ -89,7 +95,7 @@ while(dec != 'e') {
                 
                 char tahmin[100] ;
                 printf("\n\ntahmin yapiniz: ");
-                scanf("%s",tahmin) ;
+                gets(tahmin) ;
                 
                 if (strcmp(tahmin,champ_list[num][0]) == 0) 
                     printf("\n\noha helal dogru. champ: %s",champ_list[num][0]) ;
@@ -103,4 +109,12 @@ while(dec != 'e') {
         }          
         
         }
+        
+    if (dec == 'e') {
+        printf("cikis yapiliyor...");
+        fflush(stdout) ;
+        sleep(2) ;
+        printf("\ncikis yapildi") ;
+        return(0);
+    }
 }
