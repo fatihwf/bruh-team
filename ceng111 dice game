@@ -1,3 +1,30 @@
+float points(int dice1,int dice2) {				// point counter function. it will be useful in the second game.
+	
+	float result ;
+	result = (dice1 + dice2) / 2.0 ; 
+	return(result) ;
+}
+
+
+int throwing() {		// dice throwing func. we will use it in second game
+	
+				
+	
+	int number = rand() % 6 + 1 ;  		//  0 < dice < 7 . Taking mod with 6 makes the num lower than 6 and plus 1 makes it greater than 0. (avoid dice = 0) 
+	
+	return(number) ;					
+	
+	
+} 
+
+
+
+
+
+
+
+
+
 printf("\n\n*****Welcome to Dice Game******") ;
 			printf("\n\nPress ENTER to throw the dice! ") ;		// throw the dices by pressing enter! 
 			printf("\n\nGame starts*+*+*+*+*+*+") ;
