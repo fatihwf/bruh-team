@@ -1,0 +1,163 @@
+printf("\n\n*****Welcome to Dice Game******") ;
+			printf("\n\nPress ENTER to throw the dice! ") ;		// throw the dices by pressing enter! 
+			printf("\n\nGame starts*+*+*+*+*+*+") ;
+			
+			float player1 = 0.0 ;
+			float player2 = 0.0 ;				// we declerate here again same idea with the game 1. They need to reset after played once
+			int dice1,dice2,dice3,dice4 ;					// player 1 uses dice1, dice2. player 2 uses dice3, dice4. 
+			char enter; 
+			int x;
+			int throws = 0 ;		
+			
+			scanf("%c",&enter) ;		// reads the previous enter input. else it will throw the first dice automatically
+						
+			while(1) {		// while true, it will continue unless there is break command
+				
+				
+				printf("\n\nThrow the dice for player 1: ") ;   // player 1 turn
+				
+				scanf("%c",&enter) ;			
+				
+				dice1 = throwing() ;		// use the throwing() func we defined at beginning. easy to use 
+				dice2 = throwing() ;
+				throws += 2 ;				// counting the throws. output this when game ends
+				printf("%d %d",dice1,dice2) ;
+				
+				  
+				
+				
+				if ((dice1 == 3 && dice2 == 3) || (dice1 == 6 && dice2 == 6)) {  	 	// 3-3 6-6 rule for player 1
+					printf("\nYou have 3 throws because of 3-3,6-6 rule!!  ");
+					
+					for (x=1 ; x<4 ; x++) {
+						printf("\nThrow the dice for player 1: ") ;
+						scanf("%c",&enter) ;
+						
+													
+						dice1 = throwing() ;
+						dice2 = throwing() ;
+						throws += 2 ;
+						printf("%d %d",dice1,dice2) ;
+						
+						if (dice1 == dice2) {  		// dont count points for same dice values
+							continue ;
+						}
+						
+						player1 += points(dice1,dice2) ;		// using the points() func we declerated at beginning
+						
+					}
+				}
+				
+				else if ((dice1 - dice2 == 4 ) || (dice2 - dice1 == 4 )) {		// Rule : if their difference is 4 , player gets the right to throw the dices again until the sum of the two dices are greater than 8.
+					printf("\nplayer 1 throws the dices until their sum is greater or equal than 8! ") ;
+					
+					do{			// good time to use do-while loop
+					
+					printf("\nThrow the dice for player 1: ") ;
+					scanf("%c",&enter) ;
+					
+					
+					dice1 = throwing() ;
+					dice2 = throwing()  ;
+					throws += 2 ;
+					printf("%d %d",dice1,dice2) ;
+					} while(dice1 + dice2 < 8) ;
+					
+					player1 += points(dice1,dice2) ;	// once dices sum are greater than 8 , add the points.
+						
+				}
+				
+				else {		// No rule is activated. normal points 
+					
+					player1 += points(dice1,dice2) ;
+				}
+				
+				
+				
+				printf("\n\nThrow the dices for player 2: ") ;  	// player 2 turn. Same rules with player 1 
+				scanf("%c",&enter) ;
+				
+				
+				dice3 = throwing() ;		
+				dice4 = throwing() ;
+				throws += 2 ;
+				printf("%d %d",dice3,dice4) ;
+				
+				if ((dice3 == 3 && dice4 == 3) || (dice3 == 6 && dice4 == 6)) {  	 	// 3-3 6-6 rule for player 2
+					printf("\nYou have 3 throws because of 3-3,6-6 rule!!  ");
+					
+					for (x=1 ; x<4 ; x++) {
+						printf("\nThrow the dices for player 2: ") ;
+						scanf("%c",&enter) ;
+						
+						
+						dice3 = throwing() ;
+						dice4 = throwing() ;
+						throws += 2 ;
+						printf("%d %d",dice3,dice4) ;
+						
+						if (dice3 == dice4) {  			// Rule: dont take the same dice values as points
+							continue ;
+						}
+						
+						player2 += points(dice3,dice4) ;		
+						
+					}
+				}
+				
+				
+				else if ((dice3 - dice4 == 4 ) || (dice3 - dice4 == 4 )) {			// Rule: if their difference is 4 , player gets the right to throw the dices again until the sum of the two dices are greater than 8.
+					printf("\nplayer 2 throws the dices until their sum is greater or equal than 8! ") ;
+					
+					do{
+					
+					printf("\nThrow the dice for player 2: ") ;
+					scanf("%c",&enter) ;
+					
+					
+					dice3 = throwing() ;
+					dice4 = throwing() ;
+					throws += 2 ;
+					printf("%d %d",dice3,dice4) ;
+					} while(dice3 + dice4 < 8) ;
+					
+					player2 += points(dice3,dice4) ;
+						
+				}
+				
+				else {		// No rule is activated. Normal points 
+					
+					player2 += points(dice3,dice4) ;
+				}
+			
+			
+			
+				if (dice1 + dice2 == 2 *(dice3 + dice4) ) {		// game is ending if condition is provided here. Output the results
+					
+					printf("\nPlayer 1: %.f points",player1) ;
+					printf("\nPlayer 2: %.f points",player2) ;
+					printf("\n\nTotal of %d throws are performed!\n",throws);
+					
+					if (player1 > player2)  
+						printf("\n+*+*+*+*+* Winner is: Player 1 +*+*+*+*+*+*+*\n") ;
+					
+					else if(player2 > player1) 
+						printf("\n+*+*+*+*+* Winner is: Player 2 +*+*+*+*+*+*+*\n") ;
+					
+					else
+						printf("\n+*+*+*+*+*  Game Tied!  +*+*+*+*+*+*+*\n") ;
+
+					break ; 
+				}
+				
+				// end of while loop. go back to player 1 turn.
+			
+			
+			}
+			
+			
+			
+			
+			printf("\n\n***********************************************\n\n") ;
+			
+			break;	// end of Game 2
