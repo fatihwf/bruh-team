@@ -1,3 +1,6 @@
+
+							
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -500,7 +503,7 @@ void playerVsplayer(int pgk, int pmf, int pfw, int cgk, int cmf, int cfw ) {
 	
 	top = pmf ;
 	
-	while(min < 5) {
+	while(min < 8) {
 									system("cls") ;
 									
 									printf("\n\n\nTime:  %d:%d",min,sec) ;
@@ -690,7 +693,7 @@ void playerVsplayer(int pgk, int pmf, int pfw, int cgk, int cmf, int cfw ) {
 												sleep(2) ;
 												
 												if(act > antiact) {
-													if(poz == 5) {
+													if((poz == 5) || (poz == 6) || (poz == 7)) {
 														printf("\n%s kaleciyi calimladi kale bos!!",name[top]) ;
 														sleep(1) ;
 														printf("\n vurdu goooooolllll!!!!!!!") ;
@@ -698,6 +701,7 @@ void playerVsplayer(int pgk, int pmf, int pfw, int cgk, int cmf, int cfw ) {
 														topt = 2;
 														top = cmf ;
 														poz = 3;
+														printf("\n\n%s:%d --- %s:%d",player,pscore,computer,cscore) ;
 														printf("\nbaslamak icin entera basiniz") ;
 														scanf("%c",&enter) ;
 														scanf("%c",&enter) ;
@@ -914,7 +918,7 @@ void playerVsplayer(int pgk, int pmf, int pfw, int cgk, int cmf, int cfw ) {
 												sleep(2) ;
 												
 												if(act > antiact) {
-													if(poz == 1) {
+													if((poz == 1) || (poz == 0) || (poz == -1)) {
 														printf("\n%s kaleciyi calimladi kale bos!!",name[top]) ;
 														sleep(1) ;
 														printf("\n vurdu goooooolllll!!!!!!!") ;
@@ -922,6 +926,7 @@ void playerVsplayer(int pgk, int pmf, int pfw, int cgk, int cmf, int cfw ) {
 														topt = 1;
 														top = pmf ;
 														poz = 3 ;
+														printf("\n\n%s:%d --- %s:%d",player,pscore,computer,cscore) ;
 														printf("\nbaslamak icin entera basiniz") ;
 														scanf("%c",&enter) ;
 														scanf("%c",&enter) ;
@@ -958,7 +963,7 @@ void playerVsplayer(int pgk, int pmf, int pfw, int cgk, int cmf, int cfw ) {
 									
 									
 									} }
-								if(min==5) {
+								if(min==8) {
 									printf("\n\nHakem dudugu caliyor mac bitti!!! ") ;
 									printf("\nSonuc: %s:%d - %s:%d",player,pscore,computer,cscore) ;
 									printf("\n\nentera basarak ana menuya donebilirsiniz.") ;
@@ -969,6 +974,514 @@ void playerVsplayer(int pgk, int pmf, int pfw, int cgk, int cmf, int cfw ) {
 							
 
 
+
+
+void playervscomputer()
+{
+	system("cls") ;
+								int pscore = 0 ;
+								int cscore = 0 ;
+								int poz = 3 ;
+								int top = pmf ;
+								int topt = 1 ; // 1: player-- 2: computer  
+								
+								int k ;
+								int act;
+								int antiact ;
+								char antiactname[30] , actname[30] ;
+								int y;
+								int move;
+								int num ;
+								
+								int min = 0 ;
+								int sec = 0 ;
+								
+								while(min < 5) {
+									system("cls") ;
+									
+									printf("\n\nTime:  %d:%d",min,sec) ;
+									sec += 10;
+									if (sec==60) {
+										sec = 0;
+										min++ ;
+									}
+									printf("\n%s : %d ------  %s : %d\n\n",player,pscore,computer,cscore) ;
+									
+									saha(poz) ;
+									
+									if (topt == 1) { 		// top oyuncudaysa
+									
+									
+										printf("\nTopun sahibi %s",name[top]) ;
+										printf("\n1.pas\n2.sut\n3.calim ") ;
+										scanf("%d",&x) ;
+										
+										switch(x) {
+											case 1: 		// pas
+												printf("\n1.Normal Pas\n2.%s\n",superpasname[top]) ;
+												scanf("%d",&y) ;
+												switch(y) {
+													case 1:
+														k = superpas[0] ;
+														act = rand() % k ;
+														
+														break;
+														
+													case 2: 
+														k = superpas[top] ;
+														act = rand() % k ;
+														
+														break ;
+																
+													}
+							
+												
+																//  computer pas kesme yapicak
+												switch(poz) {
+					
+													case 1:
+														antiact = 0 ;
+														break;
+													case 2:
+														k = paskesme[cfw] ;
+														antiact = rand() % k ;
+														break ;
+														
+														
+													case 3: case 4:
+														k = paskesme[cmf] ;
+														antiact = rand() % k ;
+														break ;
+															
+													case 5:
+														antiact = 0 ;
+														break ;
+													default:
+														antiact = 0 ;
+														break;
+												} 
+												
+												
+													
+												if(act > antiact) {
+													
+													 
+														
+													poz += 1 ;
+													if (top == pfw)
+														top = pmf ;
+													else if(top == pmf)
+														top = pfw ;
+													else
+														top = pmf ;
+													printf("\npas basarili! %s topun sahibi",name[top]) ;
+													sleep(2) ;
+												}
+												else{
+													top = cmf ;
+													topt = 2 ; 
+													printf("\npas kesildi! %s topu kapti",name[top]) ;
+													sleep(2) ;
+												}
+											
+												break ;	
+										
+											case 2: // sut
+												printf("\n1.Normal sut\n2.%s\n",supersutname[top]) ;
+												scanf("%d",&y) ;
+												
+												switch(y) {
+													case 1:
+														act = rand() % supersut[0]  ;
+														break;
+														
+													case 2:
+														act = rand() % supersut[top] ;
+														break ;
+												}
+										
+													
+												
+												switch(poz) {
+													case -1: case 0: case 1:
+														act-=40 ;
+														break;
+														
+													case 2: 
+														act -=35 ;
+														break;
+														
+													case 3:
+														act -=25 ;
+														break;
+														
+													case 4:
+														act -= 10; 
+														break;	
+												}
+												
+												antiact = rand() % supersave[cgk] + 10 ;
+												
+												printf("\n%s nin %s !!!",name[cgk] , supersavename[cgk]) ;
+												printf("\n...") ;
+												
+												sleep(2) ;
+												
+												if (act > antiact) { 
+													printf("\n GOOOOOOOOOOOOOLLLLLLLLLL!!!!!!!!!!!") ;
+													printf("\n%s vurdu gol oldu sayin seyirciler!!",name[top]) ; 
+													pscore++ ;
+													top = cmf ;
+													poz = 3;
+													topt = 2;
+													printf("\n%s:%d -- %s:%d",player,pscore,computer,cscore) ;
+													printf("\n\nBaslamak icin entera basiniz.") ;
+													
+													scanf("%c",&enter) ;
+													scanf("%c",&enter) ;
+												}
+												else if(act <= antiact) {
+													printf("\nKaleci kurtardi! %s super kurtaris",name[cgk]) ;
+													top = cgk ;
+													topt = 2 ;
+													poz = 5;
+													sleep(2) ;
+												}
+												break ;
+										
+											case 3:  // calim
+												printf("\n1.normal calim\n2.%s\n",supercalimname[top]) ;
+												scanf("%d",&y) ; 
+												
+												switch(y) {
+													case 1:
+														act = rand() % supercalim[0] ;
+														break ;
+														
+													case 2:
+														act = rand() % supercalim[top] ;
+														break ;
+												}
+										
+												
+												switch(poz) {
+													case 1: case 2:case 3:
+														antiact = supertackle[cfw] ;
+														strcpy(antiactname , supertacklename[cfw]) ;
+														break ;
+														
+													 case 4:
+														antiact = supertackle[cmf] ;
+														strcpy(antiactname , supertacklename[cmf]) ;
+														break ;
+													
+													case 5:
+														antiact = supersave[cgk] ;
+														strcpy(antiactname , supersavename[cgk]) ;
+														break ;	
+												}
+												
+												printf("\n%s calim deniyor karsisinda %s",name[top],antiactname) ;
+												printf("\n....") ;
+												sleep(2) ;
+												
+												if(act > antiact) {
+													if((poz == 5) || (poz == 6) || (poz == 7)) {
+														printf("\n%s kaleciyi calimladi kale bos!!",name[top]) ;
+														sleep(1) ;
+														printf("\n vurdu goooooolllll!!!!!!!") ;
+														pscore++ ;
+														topt = 2;
+														top = cmf ;
+														poz = 3 ;
+														printf("baslamak icin entera basiniz") ;
+														scanf("%c",&enter) ;
+														scanf("%c",&enter) ;
+													}
+													
+													else {
+													
+													poz++ ;
+													
+													printf("\n%s calimladi!!",name[top]) ;
+													sleep(2) ; }
+												}
+												
+												else {
+													printf("\n%s topu kaybetti!!!",name[top]) ;
+													sleep(2) ;
+													topt = 2 ;
+													switch(poz) {
+														case 1: case 2:
+															top = cfw ;
+															break;
+															
+														case 3: case 4:
+															top = cmf;
+															break;
+															
+														case 5:
+															top = cgk;
+															break;
+													}
+													
+												}
+										}
+									
+									
+									
+									
+									}
+									
+									
+									else if (topt == 2) { 			//move 1: sut  2: pas  3: calim		// harekete karar ver
+										printf("\nTopun sahibi %s",name[top]) ;
+										num = rand() % 10 ;
+										switch(poz) {
+											case 1:
+												
+												if(num < 7)
+													move = 1 ;
+												else
+													move = 3 ;
+												break ;
+												
+											case 2:
+												
+												if (num < 4)
+													move = 1;
+												else if  (num<7) 
+													move = 2;
+												else if(num<10) 
+													move = 3 ;
+												break ;
+												
+											case 3:
+												if (num<2) 
+													move = 1;
+												else if(num<6)
+													move = 2 ;
+												else if (num <10)
+													move = 3;
+												break ;
+												
+											case 4:
+												if(num < 1)
+													move = 1;
+												else if(num < 6)
+													move = 2;
+												else if(num <10) 
+													move = 3;
+												break ;
+											case 5:
+												move = 2;
+												break ;
+													
+										}
+										sleep(2) ;
+										
+										switch(move) {
+											case 1: 
+												act = rand() % supersut[top] ;
+												switch(poz) {
+													case 7: case 6: case 5:
+														act-=30 ;
+														break;
+														
+													case 4: 
+														act -=25 ;
+														break;
+														
+													case 3:
+														act -=15 ;
+														break;
+														
+													case 2:
+														act -= 5; 
+														break;
+													
+												}
+												antiact = rand() % supersave[pgk] +10 ;
+												
+												printf("\n%s sut cekti %s!!",name[top],supersutname[top]) ;
+												sleep(2) ;
+												printf("\n%s in %s !!!",name[pgk],supersavename[pgk]) ;
+												printf("\n....") ;
+												sleep(2) ;
+												
+												if (act > antiact) {
+													printf("\nGOLGOGLOGGLGOOOOLL!!!!") ;
+													printf("\n%s vurdu gol oldu sayin seyircilerr!!",name[top]) ;
+													cscore++ ;
+													poz = 3 ;
+													topt = 1;
+													top = pmf ;
+													printf("\n%s:%d --- %s:%d",player,pscore,computer,cscore) ;
+													printf("\n\nBaslamak icin entera basiniz.") ;
+													
+													scanf("%c",&enter) ;
+													scanf("%c",&enter) ;
+													
+												}
+												else if(act <= antiact) {
+													printf("\nKaleci kurtardi! %s super kurtaris",name[pgk]) ;
+													topt = 1 ;
+													top = pgk ;
+													poz = 1;
+													sleep(2) ;
+												}
+												
+												break ;  // sut karar�n�n sonu
+											
+											case 2: // pas karar�
+													
+											
+												num = rand() % 10 ;
+												if(num<7) 
+												 	act = rand() % superpas[top] ;
+												else
+													act = rand() % superpas[0] ;
+												 
+										
+											
+												switch(poz) {	// oyuncu pas kesme
+					
+													case 1:case 2:
+														k = paskesme[pmf] ;
+														antiact = rand() % k ;
+														
+														break ;
+														
+													case 3: case 4:
+														k = paskesme[pfw] ;
+														antiact = rand() % k ;
+														break ;
+															
+													case 5:
+														antiact = 0 ;
+														break ;
+													
+												}
+												
+												printf("\n%s pas deniyor !!",name[top]) ;
+												sleep(1.5) ;
+												if (act > antiact) {
+													poz -= 1 ;
+													if (top == cfw)
+														top = cmf ;
+													else if(top == cmf)
+														top = cfw ;
+													else if(top == cgk)
+														top = cmf;
+													printf("\npas basarili!!") ;
+													sleep(2) ;
+												}
+												
+												else if(act <= antiact) {
+													topt = 1;
+													top = pmf ;
+													printf("\npas kesildi! top %s dogru gidiyor",name[pmf]) ;
+													sleep(2) ;
+												}
+												break ;  // pas sonu
+												
+											
+											
+											case 3: // calim
+												 num = rand() % 10 ;
+												 if (num < 8) 
+												 	act = rand() % supercalim[top] ;
+												 else 
+												 	act = rand() % supercalim[0] ;
+												
+										
+												
+												switch(poz) {
+													case 4: case 5:case 3:
+														antiact = supertackle[pfw] ;
+														strcpy(antiactname , supertacklename[pfw]) ;
+														break ;
+														
+													case 2:
+														antiact = supertackle[pmf] ;
+														strcpy(antiactname , supertacklename[pmf]) ;
+														break ;
+													
+													case 1:
+														antiact = supersave[pgk] ;
+														strcpy(antiactname , supersavename[pgk]) ;
+														break ;	
+												}
+												
+												printf("\n%s calim deniyor karsisinda %s",name[top],antiactname) ;
+												printf("\n....") ;
+												sleep(2) ;
+												
+												if(act > antiact) {
+													if((poz == 1) || (poz == 0) || (poz == -1)) {
+														printf("\n%s kaleciyi calimladi!! kale bos",name[top]) ;
+														sleep(1) ;
+														printf("\nvuruyor ve goll!!!") ;
+														cscore++ ;
+														top = pmf ;
+														poz = 3 ;
+														topt = 1 ;
+														printf("\n%s:%d -- %s:%d",player,pscore,computer,cscore) ;
+														
+														printf("\n baslamak icin entera basiniz");
+														scanf("%c",&enter) ;
+														scanf("%c",&enter) ;
+													}
+													else {
+													
+													poz-- ;
+													
+													printf("\n%s calimladi!!",name[top]) ;
+													sleep(2) ;
+												}
+												}
+												
+												else {
+													printf("\n%s topu kaybetti!!!",name[top]) ;
+													sleep(2) ;
+													topt = 1 ;
+													switch(poz) {
+														case 4: case 5:
+															top = pfw ;
+															printf("\ntop %s sekiyor",name[pfw]) ;
+															sleep(2) ;
+															break;
+															
+														case 3: case 2:
+															top = pmf;
+															printf("\ntop %s sekiyor",name[pmf]) ;
+															sleep(2) ;
+															break;
+															
+														case 1:
+															top = pgk;
+															break;
+													}
+													
+												}
+										 		break ;
+					 							
+									}
+									
+							}
+							
+							}
+							if(min==8) {
+								printf("\n\nHakem dudugu caliyor mac bitti!!! ") ;
+								printf("\nSonuc: %s:%d - %s:%d",player,pscore,computer,cscore) ;
+								printf("\n\nentera basarak ana menuya donebilirsiniz.") ;
+								scanf("%c",&enter) ;
+								scanf("%c",&enter) ;
+							}
+}
+
+
+
 int main(void) {
 	char dec;
 	
@@ -977,7 +1490,11 @@ int main(void) {
 		scanf(" %c",&dec) ;
 		
 		switch(dec) {
-			
+			case '1':
+				teamselect() ;
+				playervscomputer() ;
+				goto mainmenu ;
+				break ;
 			case '4':
 				teamselect() ;
 				
